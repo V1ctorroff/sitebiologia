@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Islane Santos">
+    <title>B.I.M.Y.T</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo base */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+            color: #1a237e;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+
+        /* Efeito de células/virus */
+        .virus {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.8;
+            background-size: cover;
+            pointer-events: none; /* Para que não interfira na interação do usuário */
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(calc(100vw - 50px), calc(100vh - 50px));
+            }
+        }
+
+        /* Cabeçalho */
+        .cabecalho {
+            background-color: #0d47a1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .cabecalho img {
+            width: 60px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .cabecalho img:hover {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        #bimyt {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #bimyt p {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        /* Navegação */
+        .navbar {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            background-color: #1976d2;
+            transform: scale(1.05);
+        }
+
+        .navbar a.active {
+            background-color: #ffd700;
+            color: #0c2886;
+        }
+
+        /* Conteúdo principal */
+        .conteudo {
+            padding: 20px;
+            max-width: 800px; /* Limita a largura das seções */
+            margin: 20px auto; /* Centraliza e adiciona espaço acima e abaixo */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
+            text-align: center; /* Centraliza o texto dentro da seção */
+        }
+
+        .conteudo:hover {
+            transform: translateY(-5px);
+        }
+
+        .conteudo img,
+        .conteudo video {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius : 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .conteudo h2 {
+            margin: 30px 0;
+            color: #0d47a1;
+        }
+
+        .conteudo p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Seções coloridas */
+        .seção {
+            margin: 50px 0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .seção#imagens {
+            background-color: #e1f5fe;
+        }
+
+        .seção#videos {
+            background-color: #e0f7fa;
+        }
+
+        .seção#textos {
+            background-color: #fff3e0;
+        }
+
+        /* Rodapé */
+        .topo2 {
+            background-color: #0d47a1;
+            height: 10px;
+            margin-top: 50px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            #bimyt p {
+                font-size: 20px;
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .conteudo {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Efeito de células/virus -->
+    <div class="virus" style="width: 50px; height: 50px; top: 10%; left: 10%; background-image: url('virus1.png'); animation-duration: 8s;"></div>
+    <div class="virus" style="width: 30px; height: 30px; top: 20%; left: 30%; background-image: url('virus2.png'); animation-duration: 12s;"></div>
+    <div class="virus" style="width: 40px; height: 40px; top: 50%; left: 50%; background-image: url('virus3.png'); animation-duration: 10s;"></div>
+    <div class="virus" style="width: 60px; height: 60px; top: 70%; left: 20%; background-image: url('virus4.png'); animation-duration: 15s;"></div>
+    <div class="virus" style="width: 20px; height: 20px; top: 80%; left: 80%; background-image: url('virus5.png'); animation-duration: 9s;"></div>
+
+    <!-- Cabeçalho com Home e Navigation Bar -->
+    <div class="cabecalho">
+        <img src="morcego.png" alt="Logo Morcego">
+        <div id="bimyt">
+            <p>B.I.M.Y.T</p>
+        </div>
+        <ul class="navbar">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#textos">Textos</a></li>
+            <li><a href="#imagens">Imagens</a></li>
+            <li><a href="#videos">Vídeos</a></li>
+        </ul>
+    </div>
+
+    <!-- Seção Home -->
+    <div id="home" class="conteudo">
+        <h2>Bem-vindo ao B.I.M.Y.T!</h2>
+        <p>
+            Explore este site para encontrar textos, imagens e vídeos incríveis sobre diversos assuntos. Use a barra de
+            navegação acima para pular diretamente para a seção que você deseja explorar!
+        </p>
+    </div>
+
+    <!-- Seção Textos -->
+    <div id="textos" class="conteudo">
+        <h2>Textos</h2>
+        <p>
+            Este é um exemplo de texto para demonstrar como você pode adicionar conteúdo textual ao seu site. 
+            Use esta seção para compartilhar informações, histórias ou artigos interessantes.
+        </p>
+    </div>
+
+    <!-- Seção Imagens -->
+    <div id="imagens" class="conteudo">
+        <h2>Imagens</h2>
+        <img src="exemplo.jpg" alt="Exemplo de Imagem">
+        <p>
+            Adicione suas imagens aqui. Elas podem ser fotografias, ilustrações ou gráficos, dependendo da proposta do
+            seu site.
+        </p>
+    </div>
+
+    <!-- Seção Vídeos -->
+    <div id="videos" class="conteudo">
+        <h2>Vídeos</h2>
+        <video controls>
+            <source src="video.mp .mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+        <p>
+            Adicione vídeos que complementem o conteúdo do seu site. Você pode usar arquivos locais ou incorporar vídeos do YouTube.
+        </p>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="topo2"></div>
+
+    <script>
+        // Alerta interativo ao clicar na logo
+        const headerLogo = document.querySelector('.cabecalho img');
+        headerLogo.addEventListener('click', () => {
+            alert('Bem-vindo ao B.I.M.Y.T!');
+        });
+
+        // Fade-in na página
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = 0;
+            document.body.style.transition = 'opacity 2s ease';
+            document.body.style.opacity = 1;
+        });
+
+        // Função para criar células/virus aleatórias
+        function createVirus() {
+            const virus = document.createElement('div');
+            virus.classList.add('virus');
+            const size = Math.random() * 50 + 20; // Tamanho aleatório entre 20px e 70px
+            virus.style.width = `${size}px`;
+            virus.style.height = `${size}px`;
+            virus.style.top = `${Math.random() * 80}vh`; // Limita o movimento vertical
+            virus.style.left = `${Math.random() * 80}vw`; // Limita o movimento horizontal
+            virus.style.backgroundImage = "url('virus.png')"; // Imagem padrão
+            virus.style.animationDuration = `${Math.random() * 10 + 5}s`; // Duração aleatória entre 5s e 15s
+            document.body.appendChild(virus);
+        }
+
+        // Criar várias células/virus
+        for (let i = 0; i < 10; i++) {
+            createVirus();
+        }
+    </script>
+</body>
+
+</html>
